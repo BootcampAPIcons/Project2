@@ -35,6 +35,20 @@ User.init(
         validate: {
           len: [4]
         }
+      },
+      points: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        validate: {
+          isInt: true
+        }
+      },
+      character_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isString: true
+        }
       }
     },
     {
