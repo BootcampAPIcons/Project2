@@ -7,6 +7,7 @@ const routes = require('./routes');
 const sequelize = require('./config/connection');
 const path = require('path');
 require('dotenv').config();
+const passport = require('passport')
 
 
 const sess = {
