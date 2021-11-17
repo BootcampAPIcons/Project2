@@ -1,46 +1,12 @@
 const router = require('express').Router();
-const { Comment } = require('../models');
+const homeRoutes = require('./home-routes.js');
+const apiRoutes = require('./api');
 
-router.get('/', (req, res) => {
-  Comment.findAll()
-    .then(dbCommentData => res.json(dbCommentData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+router.use('/api', apiRoutes);
+router.use('/', homeRoutes);
 
-router.post('/', (req, res) => {
-  // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
-  Comment.create({
-    comment_text: req.body.comment_text,
-    user_id: req.session.user_id,
-    post_id: req.body.post_id
-  })
-    .then(dbCommentData => res.json(dbCommentData))
-    .catch(err => {
-      console.log(err);
-      res.status(400).json(err);
-    });
-});
-
-router.delete('/:id', (req, res) => {
-  Comment.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbCommentData => {
-      if (!dbCommentData) {
-        res.status(404).json({ message: 'No comment found with this id!' });
-        return;
-      }
-      res.json(dbCommentData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+router.use((req, res) => {
+  res.status(404).end();
 });
 
 module.exports = router;
