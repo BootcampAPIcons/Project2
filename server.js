@@ -6,9 +6,11 @@ const hbs = exphbs.create({});
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
+require('dotenv').config();
+
 
 const sess = {
-  secret: 'secret',
+  secret: process.env.Sess_Secret,
   cookie: {},
   resave: false,
   saveUninitialized: true,
