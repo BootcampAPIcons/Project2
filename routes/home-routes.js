@@ -97,12 +97,15 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/encounter', (req, res) => {
-  // if (!req.session.loggedIn) {
-  //   res.status(401).render('logged-out-game');
-  // } else {
-  //   res.status(200).render('encounter');
-  // }
-  res.render('encounter');
+  const authd = req.isAuthenticated();
+  console.log(authd);
+  if (authd) {
+    res.render('encounter', {
+      loggedIn: authd
+    });
+  } else {
+    res.render('logged-out-game', {loggedIn: authd});
+  }
 });
 
 module.exports = router;
