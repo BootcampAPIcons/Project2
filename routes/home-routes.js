@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
       posts.map(p => console.log(Object.keys(p.user)));
+      posts.map(p => console.log(Object.keys(p)));
 
       res.render('homepage', {
         posts,
