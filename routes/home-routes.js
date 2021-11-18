@@ -29,10 +29,11 @@ router.get('/', (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
+      posts.map(p => console.log(Object.keys(p.user)));
 
       res.render('homepage', {
         posts,
-        loggedIn: req.isAuthenticated()
+        loggedIn: req.isAuthenticated(),
       });
     })
     .catch(err => {
@@ -100,6 +101,7 @@ router.get('/encounter', (req, res) => {
   const authd = req.isAuthenticated();
   console.log(authd);
   if (authd) {
+    console.log(req.user);
     res.render('encounter', {
       loggedIn: authd
     });
@@ -107,5 +109,16 @@ router.get('/encounter', (req, res) => {
     res.render('logged-out-game', {loggedIn: authd});
   }
 });
+
+router.get('/dashboard', (req, res) => {
+  const authd = req.isAuthenticated();
+  const usr = req.user;
+  console.log(`authd: ${authd}, usr: ${usr.dataValues.username}`);
+  if (!authd) {
+    res.redirect('/');
+  } else {
+    res.render('dashboard', {loggedIn: authd, username: usr.dataValues.username})
+  }
+})
 
 module.exports = router;
