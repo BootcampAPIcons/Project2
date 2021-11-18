@@ -1,27 +1,17 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const hbs = exphbs.create({});
 const routes = require('./routes');
 const sequelize = require('./config/connection');
 const path = require('path');
 
-const models = require('./models');
+const initPassport = require('./utils/passport-helper');
+const passport = require('passport');
 
 require('dotenv').config();
 
-
-passport.use(new LocalStrategy((username, password, done) => {
-  models.User.findOne({username: username}, (err, user) => {
-    if (err) return done(err);
-    if (!user) return done(null, false, {message: "Incorrect username."});
-    if (!user.checkPassword(password)) return done(null, false, {message: "Incorrect password."});
-    return done(null, user);
-  })
-}));
 
 const sess = {
   secret: process.env.Sess_Secret,
@@ -40,6 +30,11 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+initPassport(app, passport);
+console.log('before app.use(login)(passport)');
+require('./routes/login-route')(passport);
+console.log('after app.use(login)(passport)');
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
