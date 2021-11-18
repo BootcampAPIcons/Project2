@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const passport = require('passport');
+const passportLocalSequelize = require('passport-local-sequelize');
 const { User, Post } = require('../../models');
 
 //get /api/users
@@ -67,8 +69,12 @@ router.post('/', (req, res) => {
         });
     })
 });
-
-router.post('/login', (req, res) => {
+router.get('/login2'), (req, res) => {
+    console.log('success');
+}
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
+failureRedirect: '/login' }),
+(req, res) => {
     User.findOne({
       where: {
         email: req.body.email
