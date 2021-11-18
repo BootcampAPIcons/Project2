@@ -64,6 +64,10 @@ app.get('/login', (req, res) => {
   if (req.isAuthenticated()) return res.redirect('/');
   res.render('login');
 });
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+})
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
