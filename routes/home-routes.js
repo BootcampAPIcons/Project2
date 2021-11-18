@@ -96,4 +96,13 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/encounter', (req, res) => {
+  // if (!req.session.loggedIn) {
+  //   res.status(401).render('logged-out-game');
+  // } else {
+  //   res.status(200).render('encounter');
+  // }
+  res.render('encounter');
+});
+
 module.exports = router;
