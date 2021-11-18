@@ -6,6 +6,27 @@ class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
+
+    static async exists(username, email) {
+      console.log('start of User.exists()');
+      let user = await this.findOne({
+        where: {username}
+      });
+      console.log(`user: ${user}`);
+      if (user) return {username: "This username is already in use"};
+      user = await this.findOne({
+        where: {email}
+      });
+      console.log(`user: ${user}`);
+      if (user) return {email: "This email address is already in use"};
+      return false;
+    }
+
+    static async authenticate(username, pass) {
+      let user = await this.findOne({email: username});
+      if (user && checkPassword(pass)) return user;
+      return false;
+    }
 }
 
 
@@ -19,7 +40,10 @@ User.init(
       },
       username: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          isAlphanumeric: true
+        }
       },
       email: {
         type: DataTypes.STRING,
@@ -47,7 +71,7 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isString: true
+          isAlpha: true
         }
       }
     },
