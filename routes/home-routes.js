@@ -119,7 +119,7 @@ router.get('/dashboard', (req, res) => {
   if (!authd) {
     res.redirect('/');
   } else {
-    res.render('dashboard', {loggedIn: authd, username: usr.dataValues.username})
+    res.render('dashboard', {loggedIn: authd, username: usr.dataValues.username, points: usr.dataValues.points});
   }
 })
 

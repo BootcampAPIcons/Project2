@@ -39,6 +39,11 @@ const startEncounter = () => {
   console.log(enemy.type);
   enemy.hp = enemy.maxHP;
   let player = {hp: 50, atk: 10};
+
+  enemyDesc.textContent = `You see a ${enemy.type}. It has ${enemy.hp} hit points.`;
+  controls.querySelector('.encounter-fight').addEventListener('click', (ev) => {
+    eventDisplay.textContent = `You win! Adding ${enemy.reward} points!`;
+  });
 }
 
 const victoryHandler = async (enemy) => {
