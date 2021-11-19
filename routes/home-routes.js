@@ -116,6 +116,7 @@ router.get('/dashboard', (req, res) => {
   const authd = req.isAuthenticated();
   const usr = req.user;
   console.log(`authd: ${authd}, usr: ${usr.dataValues.username}`);
+  console.log(`user.datavalues keys: ${Object.keys(usr.dataValues)}`);
   if (!authd) {
     res.redirect('/');
   } else {

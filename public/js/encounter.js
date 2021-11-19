@@ -43,7 +43,7 @@ const startEncounter = () => {
   enemyDesc.textContent = `You see a ${enemy.type}. It has ${enemy.hp} hit points.`;
   controls.querySelector('.encounter-fight').addEventListener('click', (ev) => {
     eventDisplay.textContent = `You win! Adding ${enemy.reward} points!`;
-    victoryHandler()
+    victoryHandler(enemy);
   });
 }
 
@@ -56,8 +56,12 @@ const victoryHandler = async (enemy) => {
     },
     body: JSON.stringify(enemy)
   });
-  console.log(result);
-  eventDisplay.textContent = result;
+  let j = await result.json();
+  console.log(j);
+  // eventDisplay.textContent = j.points;
+  eventDisplay.textContent = `Congrats! You now have ${j.points} points!`;
+
+  setTimeout(() => {window.location.href = "/"}, 5000);
 }
 
 startEncounter();
