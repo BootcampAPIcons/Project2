@@ -5,3 +5,13 @@ body {
 div {
   background-color: tan;
 }
+
+.enemy-description {
+  background-color: palegoldenrod;
+}
+
+.event-display {
+  min-width: 300;
+  min-height: 250;
+  background-color: palegoldenrod;
+}
