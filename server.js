@@ -13,7 +13,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const {User} = require('./models');
 
 require('dotenv').config();
-const passport = require('passport')
 
 
 const sess = {
