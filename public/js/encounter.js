@@ -43,13 +43,14 @@ const startEncounter = () => {
   enemyDesc.textContent = `You see a ${enemy.type}. It has ${enemy.hp} hit points.`;
   controls.querySelector('.encounter-fight').addEventListener('click', (ev) => {
     eventDisplay.textContent = `You win! Adding ${enemy.reward} points!`;
+    victoryHandler()
   });
 }
 
 const victoryHandler = async (enemy) => {
-  let result = await fetch(`${window.location.host}/api/encounter/win`, {
+  let result = await fetch(`${window.location.protocol}//${window.location.host}/api/encounter/win`, {
     method: 'POST',
-    mode: "same-origin",
+    // mode: "same-origin",
     headers: {
       'Content-Type': 'application/json'
     },
