@@ -1,9 +1,89 @@
-body {
-  background-color: brown;
+:root {
+  --primary-color: #3d3939;
+  --secondary-color: #dbc8a3;
+  --tertiary-color: hsl(0, 63%, 37%);
+  --quaternary-color: ;
+  --quinary-color: ;
 }
 
-div {
-  background-color: tan;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+.btn {
+  background-color: var(--tertiary-color);
+  color: white;
+  border-color:var(--tertiary-color);
+}
+
+/* header */
+header {
+  padding: 15px 35px;
+  background-color:var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  top: 0;
+  z-index: 9999;
+}
+
+header h1 a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 150%;
+  font-family: "Fredericka+the+Great", sans-serif;
+}
+
+header a{
+  text-decoration: none;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  padding: 10px 15px;
+  font-size: 1.55vw;
+  color: black;
+  font-size: 125%;
+}
+
+/* main page posts */
+
+.post-list {
+  list-style: none;
+  padding: 10px;
+}
+
+.post-list li {
+  /* background: var(--secondary-color); */
+  background-image: url(/public/images/paper-texture.jpg);
+}
+
+.post-list a {
+  color:var(--tertiary-color);
+  padding: 5px;
+  font-weight: bold;
+  font-family: "Merienda", serif;
+  font-size: 25px;
+}
+
+.post-list p {
+  padding: 5px;
+  font-family: "Merienda", serif;
 }
 
 .enemy-description {
@@ -14,4 +94,21 @@ div {
   min-width: 300;
   min-height: 250;
   background-color: palegoldenrod;
+}
+
+/* dashboard */
+.profile {
+  margin: 10px;
+}
+#create-post {
+  background-color: var(--secondary-color);
+}
+
+/* footer */
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }

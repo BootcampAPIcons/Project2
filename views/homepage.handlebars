@@ -1,12 +1,24 @@
 {{!-- condition this on login status --}}
-<div class="encounter-button">
-  <a class='btn btn-primary' href="/encounter">Start an encounter!</a>
-</div>
+<div class="row">
 
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+  <div class="col-4">
+    <div>
+      <img src="/public/images/tavern.jpg" alt="medieval tavern interior">
+    </div>
+    <div class="encounter-button">
+      <a class='btn btn-primary' href="/encounter">Start an encounter!</a>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <h2>Message Board</h2>
+      <ol class="post-list">
+        {{#each posts as |post|}}
+        <li>
+          {{> post-info post }}
+        </li>
+        {{/each}}
+      </ol>
+  </div>
+
+</div>
