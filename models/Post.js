@@ -18,10 +18,7 @@ Post.init(
         },
         post_body: {
             type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isString: true
-            }
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,
