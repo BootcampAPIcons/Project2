@@ -198,6 +198,81 @@ header nav ul li:hover {
   border-radius: 2px;
 }
 
+
+/* register */
+
+.register-title {
+  color: white;
+  font-family: "Aref Ruqaa";
+  text-align: center;
+  background-color: hsl(0, 63%, 37%);
+  margin: 20px auto;
+  width: 70%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: black double 5px;
+}
+.register-form {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin: 20px 10px;
+  border: black double 5px;
+}
+
+.register-form label {
+  font-family: "Aref Ruqaa";
+  padding: 5px 5px 0px 5px;
+}
+
+.register-form button {
+  display: block;
+  width: 20%;
+  margin: 15px auto;
+}
+
+/* login */
+
+.login-title {
+  color: white;
+  font-family: "Aref Ruqaa";
+  text-align: center;
+  background-color: hsl(0, 63%, 37%);
+  margin: 20px auto;
+  width: 70%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: black double 5px;
+}
+
+.login-form {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin: 20px 10px;
+  border: black double 5px;
+}
+
+.login-form label {
+  font-family: "Aref Ruqaa";
+  padding: 5px 5px 0px 5px;
+}
+
+.login-form button {
+  display: block;
+  width: 20%;
+  margin: 15px auto;
+}
+
+/* game-error */
+
+.error-msg {
+  display: block;
+  text-align: center;
+  background-color:hsl(0, 63%, 37%);
+  font-size: 160%;
+}
+
 /* footer */
 .footer {
   background-color: var(--secondary-color);
