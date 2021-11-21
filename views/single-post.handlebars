@@ -8,33 +8,35 @@
     {{post.created_at}}
     |
     <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+    <a href="#add-comment">Add a comment</a>
   </div>
 </article>
-
-{{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-{{/if}}
 
 <div class="comments">
   {{#each post.comments}}
   <section class="comment">
     <div class="meta">
-      {{user.username}} on {{created_at}}
+      <p class="comment-name">{{user.username}}</p>
     </div>
     <div class="text">
       {{comment_text}}
     </div>
+    <p class="created-on"> on {{created_at}} </p>
   </section>
   {{/each}}
 </div>
+
+{{#if loggedIn}}
+<form id="add-comment" class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button class="btn" type="submit">add comment</button>
+  </div>
+</form>
+{{/if}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

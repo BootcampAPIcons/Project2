@@ -73,7 +73,7 @@ header nav ul {
   margin: 20px 10px 0px 10px;
   font-size: 1.55vw;
   color: black;
-  font-size: 170%;
+  font-size: 120%;
   font-family: "Aref Ruqaa";
   border: double black 4px;
   border-radius: 5px;
@@ -302,6 +302,66 @@ header nav ul li:hover {
 
 .encounter-fight {
   margin: 10px 10px;
+}
+
+/* single-post page */
+.post {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  margin: 20px 10px 10px 10px;
+  border: double black 5px;
+  border-radius: 5px;
+}
+
+.post .title a {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  font-size: 130%;
+}
+
+.comments {
+  background-color: var(--secondary-color);
+  margin: 20px 10px 10px 10px;
+  border: double black 5px;
+  border-radius: 5px;
+}
+
+.comment {
+  background-color: #e0d6c2;
+  margin: 20px 10px 10px 10px;
+  padding: 10px 10px 2px 10px;
+  border-radius: 5px;
+}
+
+.comment-name {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 110%;
+}
+
+.created-on {
+  font-size: 70%;
+  color: var(--tertiary-color);
+  padding: 20px 0px 0px 0px;
+
+}
+
+.comment-form {
+  width: 100%;
+}
+
+.comment-form textarea {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+.comment-form .btn {
+  display: block;
+  width: 20%;
+  margin: 10px auto;
+  font-family: "Aref Ruqaa";
+  
 }
 
 
