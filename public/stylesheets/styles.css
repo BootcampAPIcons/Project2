@@ -70,7 +70,7 @@ header nav ul {
 
 .post-list li {
   /* background: var(--secondary-color); */
-  background-image: url(/public/images/paper-texture.jpg);
+  background-image: url(../images/paper-texture.jpg);
 }
 
 .post-list a {
