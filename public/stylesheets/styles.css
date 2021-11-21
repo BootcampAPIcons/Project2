@@ -1,0 +1,384 @@
+:root {
+  --primary-color: #3d3939;
+  --secondary-color: #dbc8a3;
+  --tertiary-color: hsl(0, 63%, 37%);
+  --quaternary-color: ;
+  --quinary-color: ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  margin-bottom:50px;  
+}
+
+.btn {
+  background-color: var(--tertiary-color);
+  color: white;
+  border-color:var(--tertiary-color);
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgb(77, 25, 25);
+}
+
+.btn:hover {
+  background-color: hsl(0, 69%, 28%);
+  border-color: hsl(0, 69%, 28%);
+}
+
+/* header */
+header {
+  padding: 15px 35px;
+  background-color:var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  top: 0;
+  z-index: 9999;
+}
+
+header h1 a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 170%;
+  font-family: "Fondamento", sans-serif;
+  /* border-right:hsl(0, 63%, 37%) solid 3px;
+  padding-right: 10px; */
+}
+
+header h1 a:hover {
+  color:hsl(0, 69%, 28%);
+}
+
+header a{
+  text-decoration: none;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  padding: 5px 10px;
+  margin: 20px 10px 0px 10px;
+  font-size: 1.55vw;
+  color: black;
+  font-size: 120%;
+  font-family: "Aref Ruqaa";
+  border: double black 4px;
+  border-radius: 5px;
+}
+
+.nav-link a{
+  color: black;
+  padding: 5px 5px;
+}
+
+header nav ul li:hover {
+  background-color: var(--tertiary-color);
+}
+
+.nav-link a:hover {
+  color: white;
+}
+/* left column */
+
+.tavern-img {
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.action-buttons {
+  width: 80%;
+  margin: auto;
+  font-family: "Aref Ruqaa";
+}
+
+/* main page posts */
+
+.message-board-title {
+  font-family: "Aref Ruqaa";
+  color: black;
+  background-color: var(--tertiary-color);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  border: double black 5px;
+  border-radius: 5px;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.post-list {
+  list-style: none;
+  padding: 10px;
+}
+
+.post-list li {
+  /* background: var(--secondary-color); */
+  background-image: url(../images/paper-texture.jpg);
+}
+
+.post-list a {
+  color:var(--tertiary-color);
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Merienda", serif;
+  font-size: 25px;
+}
+
+.post-list p {
+  padding: 10px;
+  font-family: "Merienda", serif;
+  font-weight: bold;
+}
+
+
+/* dashboard */
+.profile {
+  margin: 20px 10px 10px 10px;
+  padding: 10px;
+  background-color: var(--tertiary-color);
+  border: black double 5px;
+  border-radius: 15px;
+  color: black;
+  font-family: "Fondamento";
+}
+
+.profile-heading {
+  border-bottom: solid black 2px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.create-post {
+  margin: 20px 10px 10px 10px;
+  padding: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  font-family: "Aref Ruqaa";
+}
+
+.create-post h2 {
+  padding: 5px 10px 10px 10px;
+}
+
+.new-post-form label {
+  font-size: 20px;
+  padding: 5px 5px;
+}
+
+.form-submit-button {
+  display: block;
+  width: 50%;
+  margin: 15px auto;
+}
+
+#post-title {
+  border-radius: 2px;
+}
+
+
+/* register */
+
+.register-title {
+  color: white;
+  font-family: "Aref Ruqaa";
+  text-align: center;
+  background-color: var(--tertiary-color);
+  margin: 20px auto;
+  width: 70%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: black double 5px;
+}
+.register-form {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin: 20px 10px;
+  border: black double 5px;
+}
+
+.register-form label {
+  font-family: "Aref Ruqaa";
+  padding: 5px 5px 0px 5px;
+}
+
+.register-form button {
+  display: block;
+  width: 20%;
+  margin: 15px auto;
+}
+
+/* login */
+
+.login-title {
+  color: white;
+  font-family: "Aref Ruqaa";
+  text-align: center;
+  background-color: var(--tertiary-color);
+  margin: 20px auto;
+  width: 70%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: black double 5px;
+}
+
+.login-form {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin: 20px 10px;
+  border: black double 5px;
+}
+
+.login-form label {
+  font-family: "Aref Ruqaa";
+  padding: 5px 5px 0px 5px;
+}
+
+.login-form button {
+  display: block;
+  width: 20%;
+  margin: 15px auto;
+}
+
+/* game-error */
+
+.error-msg {
+  display: block;
+  text-align: center;
+  background-color: var(--tertiary-color);
+  font-size: 160%;
+}
+
+/* encounter */
+
+.encounter-title {
+  color: white;
+  font-family: "Aref Ruqaa";
+  text-align: center;
+  background-color: var(--tertiary-color);
+  margin: 20px auto;
+  width: 70%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: black double 5px;
+}
+
+.encounter-text {
+  background-color: var(--secondary-color);
+  text-align: center;
+  font-family: "Aref Ruqaa";
+  font-size: 120%;
+  border-radius: 5px;
+  border: double black 5px;
+  margin: 20px 10px;
+}
+
+.enemy-description {
+  padding: 10px 10px;
+  margin: 20px 10px;
+}
+
+.event-display {
+  min-width: 300;
+  min-height: 250;
+  padding: 10px 10px;
+  margin: 20px 10px;
+}
+
+.encounter-fight {
+  margin: 10px 10px;
+}
+
+/* single-post page */
+.post {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  margin: 20px 10px 10px 10px;
+  border: double black 5px;
+  border-radius: 5px;
+}
+
+.post .title a {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  font-size: 130%;
+}
+
+.comments {
+  background-color: var(--secondary-color);
+  margin: 20px 10px 10px 10px;
+  border: double black 5px;
+  border-radius: 5px;
+}
+
+.comment {
+  background-color: #e0d6c2;
+  margin: 20px 10px 10px 10px;
+  padding: 10px 10px 2px 10px;
+  border-radius: 5px;
+}
+
+.comment-name {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 110%;
+}
+
+.created-on {
+  font-size: 70%;
+  color: var(--tertiary-color);
+  padding: 20px 0px 0px 0px;
+
+}
+
+.comment-form {
+  width: 100%;
+}
+
+.comment-form textarea {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+.comment-form .btn {
+  display: block;
+  width: 20%;
+  margin: 10px auto;
+  font-family: "Aref Ruqaa";
+  
+}
+
+
+/* footer */
+.footer {
+  background-color: var(--secondary-color);
+  position: fixed;
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+footer p {
+  font-size: 125%;
+  padding: auto;
+  margin: auto;
+  text-align: center;
+}
