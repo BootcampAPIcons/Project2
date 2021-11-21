@@ -8,7 +8,8 @@
   <title>Tavern Cafe</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda|Fredericka+the+Great">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda|Fondamento|Kings">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredericka+the+Great">
   <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 
@@ -20,9 +21,10 @@
       </h1>
       <nav>
         <ul>
+          <li class="nav-link"><a href="/">Home</a></li>
           {{#if loggedIn}}
-          <a href="/dashboard"><li class="nav-link">My Profile</li></a>
-          <li id="logout" class="nav-link">Logout</li>
+          <li class="nav-link"><a href="/dashboard">My Profile</a></li>
+          <li id="logout" class="nav-link"><a href="/">Logout</a></li>
           {{else}}
           <li class="nav-link"><a href="/register">Register</a></li>
           <li class="nav-link"><a href="/login">Login</a></li>
@@ -35,8 +37,10 @@
       {{{ body }}}
       </div>
     </main>
-    <footer>
-      Thanks for visiting!
+    <footer class="footer">
+      <div class="container">
+        <p>Thanks for visiting!</p>
+      </div>
     </footer>
   </div>
 

@@ -3,15 +3,15 @@
 
   <div class="col-4">
     <div>
-      <img src="../public/images/tavern.jpg" alt="medieval tavern interior">
+      <img src="../images/tavern.jpg" alt="medieval tavern interior" class="img-fluid tavern-img">
     </div>
-    <div class="encounter-button">
-      <a class='btn btn-primary' href="/encounter">Start an encounter!</a>
+    <div class="encounter-button row align-items-center">
+      <a class='btn btn-primary' id="encounter-btn" href="/encounter">Start an encounter!</a>
     </div>
   </div>
 
   <div class="col-8">
-    <h2>Message Board</h2>
+    <h2 class="message-board-title">Message Board</h2>
       <ol class="post-list">
         {{#each posts as |post|}}
         <li>
