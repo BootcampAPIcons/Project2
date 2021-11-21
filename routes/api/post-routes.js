@@ -42,8 +42,8 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_body',
       'title',
+      'post_body',
       'created_at',
     ],
     include: [
@@ -79,7 +79,7 @@ router.post('/', (req, res) => {
   console.log(Object.keys(req.user.dataValues));
   Post.create({
     title: req.body.title,
-    post_body: req.body.body,
+    post_body: req.body.post_body,
     user_id: req.user.dataValues.id,
   })
     .then(dbPostData => res.json(dbPostData))
@@ -93,7 +93,7 @@ router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
       title: req.body.title,
-      post_body: req.body.body
+      post_body: req.body.post_body
     },
     {
       where: {
