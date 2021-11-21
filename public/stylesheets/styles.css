@@ -74,12 +74,14 @@ header nav ul {
   font-size: 1.55vw;
   color: black;
   font-size: 170%;
-  font-family: "Kings";
+  font-family: "Aref Ruqaa";
   border: double black 4px;
+  border-radius: 5px;
 }
 
 .nav-link a{
   color: black;
+  padding: 5px 5px;
 }
 
 header nav ul li:hover {
@@ -93,23 +95,28 @@ header nav ul li:hover {
 
 .tavern-img {
   margin: 10px;
+  border-radius: 5px;
 }
 
-.encounter-btn {
-  padding: 10px;
+.action-buttons {
+  width: 80%;
+  margin: auto;
+  font-family: "Aref Ruqaa";
 }
 
 /* main page posts */
 
 .message-board-title {
-  font-family: "Kings";
+  font-family: "Aref Ruqaa";
   color: black;
   background-color: var(--tertiary-color);
   margin: 10px;
   padding: 20px;
   text-align: center;
   border: double black 5px;
+  border-radius: 5px;
   font-size: 200%;
+  font-weight: bold;
 }
 
 .post-list {
@@ -148,10 +155,47 @@ header nav ul li:hover {
 
 /* dashboard */
 .profile {
-  margin: 10px;
+  margin: 20px 10px 10px 10px;
+  padding: 10px;
+  background-color: var(--tertiary-color);
+  border: black double 5px;
+  border-radius: 15px;
+  color: black;
+  font-family: "Fondamento";
 }
-#create-post {
+
+.profile-heading {
+  border-bottom: solid black 2px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.create-post {
+  margin: 20px 10px 10px 10px;
+  padding: 10px;
   background-color: var(--secondary-color);
+  border-radius: 5px;
+  font-family: "Aref Ruqaa";
+}
+
+.create-post h2 {
+  padding: 5px 10px 10px 10px;
+}
+
+.new-post-form label {
+  font-size: 20px;
+  padding: 5px 5px;
+}
+
+.form-submit-button {
+  display: block;
+  width: 50%;
+  margin: 15px auto;
+}
+
+#post-title {
+  border-radius: 2px;
 }
 
 /* footer */
