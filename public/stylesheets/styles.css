@@ -143,15 +143,6 @@ header nav ul li:hover {
   font-weight: bold;
 }
 
-.enemy-description {
-  background-color: palegoldenrod;
-}
-
-.event-display {
-  min-width: 300;
-  min-height: 250;
-  background-color: palegoldenrod;
-}
 
 /* dashboard */
 .profile {
@@ -205,7 +196,7 @@ header nav ul li:hover {
   color: white;
   font-family: "Aref Ruqaa";
   text-align: center;
-  background-color: hsl(0, 63%, 37%);
+  background-color: var(--tertiary-color);
   margin: 20px auto;
   width: 70%;
   padding: 10px 10px;
@@ -237,7 +228,7 @@ header nav ul li:hover {
   color: white;
   font-family: "Aref Ruqaa";
   text-align: center;
-  background-color: hsl(0, 63%, 37%);
+  background-color: var(--tertiary-color);
   margin: 20px auto;
   width: 70%;
   padding: 10px 10px;
@@ -269,9 +260,50 @@ header nav ul li:hover {
 .error-msg {
   display: block;
   text-align: center;
-  background-color:hsl(0, 63%, 37%);
+  background-color: var(--tertiary-color);
   font-size: 160%;
 }
+
+/* encounter */
+
+.encounter-title {
+  color: white;
+  font-family: "Aref Ruqaa";
+  text-align: center;
+  background-color: var(--tertiary-color);
+  margin: 20px auto;
+  width: 70%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: black double 5px;
+}
+
+.encounter-text {
+  background-color: var(--secondary-color);
+  text-align: center;
+  font-family: "Aref Ruqaa";
+  font-size: 120%;
+  border-radius: 5px;
+  border: double black 5px;
+  margin: 20px 10px;
+}
+
+.enemy-description {
+  padding: 10px 10px;
+  margin: 20px 10px;
+}
+
+.event-display {
+  min-width: 300;
+  min-height: 250;
+  padding: 10px 10px;
+  margin: 20px 10px;
+}
+
+.encounter-fight {
+  margin: 10px 10px;
+}
+
 
 /* footer */
 .footer {
