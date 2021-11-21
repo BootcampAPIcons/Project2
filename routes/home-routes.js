@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
+      // 'post_url',
       'title',
       'created_at',
     ],
@@ -29,10 +29,12 @@ router.get('/', (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
+      posts.map(p => console.log(Object.keys(p.user)));
+      posts.map(p => console.log(Object.keys(p)));
 
       res.render('homepage', {
         posts,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.isAuthenticated(),
       });
     })
     .catch(err => {
@@ -49,7 +51,7 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      // 'post_url',
       'title',
       'created_at',
     ],
@@ -76,9 +78,10 @@ router.get('/post/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
+      console.log(post);
       res.render('single-post', {
         post,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.isAuthenticated()
       });
     })
     .catch(err => {
@@ -88,12 +91,37 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.isAuthenticated()) {
     res.redirect('/');
     return;
   }
 
   res.render('login');
 });
+
+router.get('/encounter', (req, res) => {
+  const authd = req.isAuthenticated();
+  console.log(authd);
+  if (authd) {
+    console.log(req.user);
+    res.render('encounter', {
+      loggedIn: authd
+    });
+  } else {
+    res.render('logged-out-game', {loggedIn: authd});
+  }
+});
+
+router.get('/dashboard', (req, res) => {
+  const authd = req.isAuthenticated();
+  const usr = req.user;
+  console.log(`authd: ${authd}, usr: ${usr.dataValues.username}`);
+  console.log(`user.datavalues keys: ${Object.keys(usr.dataValues)}`);
+  if (!authd) {
+    res.redirect('/');
+  } else {
+    res.render('dashboard', {loggedIn: authd, username: usr.dataValues.username, points: usr.dataValues.points, character_name: usr.dataValues.character_name});
+  }
+})
 
 module.exports = router;

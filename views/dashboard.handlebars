@@ -1,31 +1,69 @@
-<section>
-  <h2>Create New Post</h2>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+  <div class="row">
+    <div class="col-4">
+      <div class="profile">
+        <div class="profile-heading">
+        <h2>
+          Welcome, {{username}}!
+        </h2>
+        <h4>
+          You have {{points}} points.
+        </h4>
+        </div>
+        <h4>
+          Character: 
+          {{!-- {{ character_name }} --}}
+        </h4>
+        <h4>
+          Class: Barbarian
+          {{!-- {{ character_class }} --}}
+        </h4>
+        <h4>
+          Race: Wilden
+          {{!-- {{ character_race }} --}}
+        </h4>
+        <h4>
+          Strength: 12
+          {{!-- {{ character_strength }} --}}
+        </h4>
+        <h4>
+          Charisma: 10
+          {{!-- {{ character_charisma }} --}}
+        </h4>        
+      </div>
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
+
+  <div class="col-8" id="create-post">
+    <div class="create-post">
+      <h2>Create New Post</h2>
+
+      <form class="new-post-form">
+        <div>
+          <label for="post-title" class="post-title-label">Title:</label>
+          <input type="text" id="post-title" name="post-title" />
+        </div>
+        {{!-- <div>
+          <label for="post-url">Link</label>
+          <input id="post-url" name="post-url" />
+        </div> --}}
+        <button type="submit" class="btn form-submit-button">Create</button>
+      </form>
+
+    {{#if posts.length}}
+    <section>
+      <h2>Your Posts</h2>
+      <ol>
+        {{#each posts as |post|}}
+        <li>
+          {{> post-info post}}
+          <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+        {{/each}}
+      </ol>
+    </section>
+    {{/if}}
     </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
+  </div>
+</div>
 
-{{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-
-<script src="/public/js/add-post.js"></script>
+<script src="/js/add-post.js"></script>

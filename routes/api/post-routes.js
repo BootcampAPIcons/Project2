@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
+      // 'post_url',
       'title',
       'created_at'
     ],
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      // 'post_url',
       'title',
       'created_at',
     ],
@@ -74,12 +74,15 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  console.log(`triggered post route`);
+  console.log(Object.keys(req.user.dataValues));
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
-    user_id: req.session.user_id
+    // post_url: req.body.post_url,
+    // user_id: req.session.user_id
+    user_id: req.user.dataValues.id,
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

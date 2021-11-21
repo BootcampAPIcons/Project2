@@ -1,0 +1,43 @@
+<article class="post">
+  <div class="title">
+    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
+    <span>({{post.post_url}})</span>
+  </div>
+  <div class="meta">
+    by {{post.user.username}} on
+    {{post.created_at}}
+    |
+    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+    <a href="#add-comment">Add a comment</a>
+  </div>
+</article>
+
+<div class="comments">
+  {{#each post.comments}}
+  <section class="comment">
+    <div class="meta">
+      <p class="comment-name">{{user.username}}</p>
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+    <p class="created-on"> on {{created_at}} </p>
+  </section>
+  {{/each}}
+</div>
+
+{{#if loggedIn}}
+<form id="add-comment" class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button class="btn" type="submit">add comment</button>
+  </div>
+</form>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

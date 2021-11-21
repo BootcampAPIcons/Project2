@@ -29,6 +29,7 @@
     "mysql2": "^2.3.3",
     "oauth": "^0.9.15",
     "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.9.0"
   },
   "devDependencies": {
