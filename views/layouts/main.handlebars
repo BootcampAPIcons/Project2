@@ -21,11 +21,11 @@
       <nav>
         <ul>
           {{#if loggedIn}}
-          <a href="/dashboard"><li class="nav-link">Dashboard</li></a>
+          <a href="/dashboard"><li class="nav-link">My Profile</li></a>
           <li id="logout" class="nav-link">Logout</li>
           {{else}}
-          <a href="/register"><li class="nav-link">Register</li></a>
-          <a href="/login"><li class="nav-link">Login</li></a>
+          <li class="nav-link"><a href="/register">Register</a></li>
+          <li class="nav-link"><a href="/login">Login</a></li>
           {{/if}}
         </ul>
       </nav>
