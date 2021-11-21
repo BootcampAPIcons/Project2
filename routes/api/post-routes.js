@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+// get all posts
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      // 'post_url',
+      'post_body',
       'title',
       'created_at',
     ],
@@ -75,13 +75,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   console.log(`triggered post route`);
   console.log(Object.keys(req.user.dataValues));
   Post.create({
     title: req.body.title,
-    // post_url: req.body.post_url,
-    // user_id: req.session.user_id
+    post_body: req.body.body,
     user_id: req.user.dataValues.id,
   })
     .then(dbPostData => res.json(dbPostData))
@@ -94,7 +92,8 @@ router.post('/', (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_body: req.body.body
     },
     {
       where: {
